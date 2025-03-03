@@ -1,0 +1,40 @@
+sort1 uses: BUBBLE SORT
+
+How do you know?: its running time was higher for larger data sets i.e. 50000.txt files
+in random (7.305s) and reversed (6.432s) order, although for a sorted50000.txt file it
+perfomed better taking 1.560s, as it has the advantage of early termination once sorted.
+
+| File |         Real |     User |      Sys |
+| RANDOM5000 | 0m0.109s | 0m0.033s | 0m0.033s |
+| RANDOM50000 | 0m7.305s | 0m5.214s | 0m0.313s |
+| REVERSED5000 | 0m0.092s | 0m0.043s | 0m0.032s |
+| REVERSED50000 | 0m6.432s | 0m4.494s | 0m0.260s |
+| SORTED5000 | 0m0.038s | 0m0.000s | 0m0.030s |
+| SORTED50000 | 0m1.560s | 0m0.026s | 0m0.261s |
+
+sort2 uses: MERGE SORT
+
+How do you know?: it shows consistent and relatively lower running times across
+random (1.993s), reversed (1.448s) and sorted (1.521s) order.
+
+| File |        Real |       User |    Sys |
+| RANDOM50000 | 0m1.993s | 0m0.029s | 0m0.252s |
+| SORTED50000 | 0m1.521s | 0m0.029s | 0m0.256s |
+| REVERSED50000 | 0m1.448s | 0m0.038s | 0m0.243s |
+| RANDOM5000 | 0m0.032s | 0m0.004s | 0m0.027s |
+| REVERSED5000 | 0m0.038s | 0m0.000s | 0m0.031s |
+| SORTED5000 | 0m0.031s | 0m0.004s | 0m0.026s |
+
+sort3 uses: SELECTION SORT
+
+How do you know?: it shows similar running times across random (3.789s), reversed (3.770s)
+and sorted orders (3.412s) for 50000.txt files, reflecting its higher time complexity of n^2, compared
+to merge sort.
+
+| File |        Real |      User |    Sys |
+| RANDOM50000 | 0m3.789s | 0m1.850s | 0m0.264s |
+| REVERSED50000 | 0m3.770s | 0m1.982s | 0m0.273s |
+| SORTED50000 | 0m3.412s | 0m1.896s | 0m0.280s |
+| REVERSED5000 | 0m0.062s | 0m0.024s | 0m0.027s |
+| SORTED5000 | 0m0.048s | 0m0.017s | 0m0.029s |
+| RANDOM5000 | 0m0.047s | 0m0.016s | 0m0.029s |

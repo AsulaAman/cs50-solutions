@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playwrite+FR+Moderne:wght@100..400&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia</title>
+        <script>
+            function answerMultiChoice(event) {
+                // Get the element
+                let button = event.target;
+
+                // Check if inner HTML matches correct answer
+                if (button.innerHTML == 'Mr Potato Head') {
+                    button.style.backgroundColor = 'Green';
+                    button.parentElement.querySelector('.feedback').innerHTML = 'Correct! Well done 🥳';
+                } else {
+                    button.style.backgroundColor = 'Red';
+                    button.parentElement.querySelector('.feedback').innerHTML = 'Incorrect! Try again 😭';
+                }
+            }
+
+            function answerFreeResponse(event) {
+                // Get the element
+                let button = event.target;
+
+                // Get the input element
+                let input = button.parentElement.querySelector('input');
+
+                // Check answer
+                if (input.value == 'sheep') {
+                    input.parentElement.querySelector('.feedback').innerHTML = 'Correct! Well done 🥳';
+                } else {
+                    input.parentElement.querySelector('.feedback').innerHTML = 'Incorrect! Try again 😭';
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="header">
+            <h1>Trivia</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What was the first toy to be advertised on television?</h3>
+                <button onclick="answerMultiChoice(event)">Cabbage Patch Kids</button>
+                <button onclick="answerMultiChoice(event)">Slinky</button>
+                <button onclick="answerMultiChoice(event)">GI Joe</button>
+                <button onclick="answerMultiChoice(event)">Mr Potato Head</button>
+                <button onclick="answerMultiChoice(event)">Barbie Doll</button>
+                <p class="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>What was the first animal to ever be cloned? </h3>
+                <input type="text"></input>
+                <button onclick="answerFreeResponse(event)">Check</button>
+                <p class="feedback"></p>
+            </div>
+        </div>
+    </body>
+
+</html>

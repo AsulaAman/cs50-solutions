@@ -1,0 +1,8 @@
+10 HTML tags and 5 CSS properties used:
+HTML- <link>, <figure>, <section>, <div>, <img>, <p>, <a>, <span>, <button>, <figcaption>
+CSS- color, font-family, padding, display, width etc
+
+A brief (one-sentence) description of how you chose to use JavaScript and Bootstrap: I created a webpage about my interest in Anime highlighting 3 main TV series that I enjoyed watching
+growing up. I used JavaScript to include a button for users to "go back" that uses history.back()so that you can easily navigate back to the previous page and I used the 'btn-light' class
+from Bootstrap to change its appearance across all the pages. I also used Bootstrap for hover effects over texts, typography for text alignment and style as well the container class
+to make sure the content was properly aligned.
