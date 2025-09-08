@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<title>Dashboard</title>
+<h1>Welcome to your Dashboard, {{ current_user.username }}!</h1>
+<a href="{{ url_for('logout') }}">Logout</a>
+
+<h2>Your Expenses</h2>
+<ul>
+    {% for expense in expenses %}
+        <li>{{ expense.name }} - ${{ expense.amount }} on {{ expense.date }}</li>
+    {% else %}
+        <li>No expenses recorded yet.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
