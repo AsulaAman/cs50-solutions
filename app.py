@@ -1,4 +1,5 @@
 import os
+from collections import defaultdict
 from flask import Flask, render_template, redirect, url_for, flash, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, LoginManager, login_user, login_required, logout_user, current_user
@@ -98,8 +99,18 @@ def dashboard():
         Expense.date >= start).all()
 
     total = sum(expense.amount for expense in expenses)
+
+    category_totals = defaultdict(float)
+    for expense in expenses:
+        if expense.category_id:
+            category = Category.query.get(expense.category_id)
+            category_name = category.name if category else "Uncategorized"
+            category_totals[category_name] += expense.amount
+        else:
+            category_totals["Uncategorized"] += expense.amount
+
     print(f"Total expenses for the month: {total}")
-    return render_template('dashboard.html', expenses=expenses, total=total)
+    return render_template('dashboard.html', expenses=expenses, total=total, category_totals=category_totals)
 
 @app.route('/logout', methods=['GET', 'POST'])
 @login_required
@@ -125,7 +136,6 @@ def register():
 @login_required
 def add_expense():
     categories = Category.query.all()
-    print(categories)
 
     if request.method == 'POST':
         name = request.form['name']

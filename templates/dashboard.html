@@ -37,4 +37,15 @@
 {% if not expenses %}
 <p>No expenses recorded yet. <a href="{{ url_for('add_expense') }}">Add one now!</a></p>
 {% endif %}
+<h2 class="mt-4">Expenses by Category</h2>
+<canvas id="expensesChart" width="400" height="200"></canvas>
+<script>
+    window.expensesData = [
+        {% for category, amount in category_totals.items() %}
+            { category: "{{ category }}", amount: {{ amount }} }{% if not loop.last %},{% endif %}
+        {% endfor %}
+    ];
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='charts.js') }}"></script>
 {% endblock %}
