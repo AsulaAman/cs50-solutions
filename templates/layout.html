@@ -8,11 +8,19 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
         <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
     </head>
-    <body>
+    <body class="container mt-4">
         <nav>
-          <a href="{{ url_for('dashboard') }}">dashboard</a>
-          <a href="{{ url_for('add_expense') }}">Add Expense</a>
-          <a href="{{ url_for('logout') }}">Logout</a>
+          <a href="{{ url_for('dashboard') }}" class="btn btn-outline-primary">Dashboard</a>
+          <a href="{{ url_for('add_expense') }}" class="btn btn-outline-primary">Add Expense</a>
+          <a href="{{ url_for('logout') }}" class="btn btn-outline-light">Logout</a>
         </nav>
+        <div class="container">
+          {% for message in get_flashed_messages() %}
+            <div class="alert alert-info mt-2">{{ message }}</div>
+          {% endfor %}
+        </div>
+            {% block content %}
+
+            {% endblock %}
     </body>
 </html>
