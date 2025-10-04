@@ -1,28 +1,29 @@
   document.addEventListener('DOMContentLoaded', function () {
-      if (window.expensesData === undefined || window.expensesData.length === 0) {
-        console.log("No data available for chart");
-        return;
-      }
+    const dataObject = window.expensesData;
 
-      console.log("Expenses data:", window.expensesData);
+
+      const labels = Object.keys(dataObject);
+      const data = Object.values(dataObject);
 
       const ctx = document.getElementById('expensesChart').getContext('2d');
 
       new Chart(ctx, {
           type: 'bar',
           data: {
-            labels: window.expensesData.map(row => row.category),
+            labels: labels,
             datasets: [{
                 label: 'Total Expenses by Category (£)',
-                data: window.expensesData.map(row => row.amount),
+                data: data,
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                 borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
+                borderWidth: 1,
+                hoverBackgroundColor: 'rgba(75, 192, 192, 0.4)',
             }]
         },
         options: {
           indexAxis: 'y',
           responsive: true,
+          maintainAspectRatio: false,
           plugins: {
             legend: { display: true },
             title: {
