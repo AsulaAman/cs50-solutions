@@ -5,6 +5,7 @@
 Built with Python and Flask combined with SQLALCHEMY and SQLite for data management as well as HTML/CSS for the frontend, this webapp emphasises usability, clean design and basic data privacy.
 
 File Structure
+
 The project is organised using a modular structure to promote readability and ongoing code upkeep. The main application logic resides in app.py, which defines routes, models and form handling. The init_db.py file is a separate script created to initialise the database and seed default categories - ensuring that the setup logic is separate from the core app. The HTML templates are stored in the templates/ directory and follow a consistent layout structure with layout.html as the base template, maintaining DRY principles. JavaScript and style logic are in the static/folder, separating presentation from logic, and the requirements.txt file contains all the dependencies for an easy environment setup. I debated using custom categories, but chose predefined ones to keep the UX clean and validation simpler. 
 
 ✅ Features
@@ -64,7 +65,6 @@ Tech Stack
 
 
 Installation
-
 1. Clone the Repository
 To get Track|It up and running locally, follow these steps:
 - git clone https://github.com/AsulaAman/cs50-solutions/tree/master
@@ -107,6 +107,7 @@ Route                   Description
 /delete/<expense_id>    Delete an expense
 
 /logout                 Logout of your session
+
 
 
 
